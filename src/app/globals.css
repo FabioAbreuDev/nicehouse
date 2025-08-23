@@ -393,3 +393,7 @@
 .painel-title-text {
   font-family: "SF Pro Display";
 }
+
+.required-icon{
+  color: red;
+}

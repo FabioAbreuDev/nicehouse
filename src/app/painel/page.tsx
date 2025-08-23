@@ -8,6 +8,8 @@ import arrowIcon from "../../assets/arrow.png";
 import house from "../../assets/house.png";
 import mug from "../../assets/mug.svg";
 import media from "../../assets/media.svg";
+import folder from "../../assets/folder.svg";
+import plus from "../../assets/plus.svg";
 
 import Image from "next/image";
 import Modal from "../../components/Modal";
@@ -37,7 +39,7 @@ export default function Dashboard() {
           </div>
           <div className="w-8 h-8 rounded-full overflow-hidden bg-gray-300">
             <Image
-              src=""
+              src={engineIcon}
               alt="user"
               width={32}
               height={32}
@@ -48,7 +50,7 @@ export default function Dashboard() {
       </header>
 
       {/* Main */}
-      <main className="p-10">
+      <main className="px-25 py-10">
         <div className="painel-title">
           <div className="painel-title-text">Boas vindas 👋</div>
           <div>
@@ -68,7 +70,7 @@ export default function Dashboard() {
           <p className="painel-home-text">Home</p>
         </div>
 
-        <div className="painel-content-noCreator">
+        <div className="painel-content-noCreator ">
           {/* Left content */}
           <div className="max-w-lg">
             <h2 className="text-base font-semibold mb-2">
@@ -121,22 +123,71 @@ export default function Dashboard() {
               Em massa
             </button>
           </div>
-          <div className="tab-content">
-            {selectedOption === "Individual" && (
-              <div id="individual-tab">
-                <h3>Conteúdo Individual</h3>
-                <p>
-                  Aqui você pode gerenciar consultas individuais de creators.
+          {selectedOption === "Individual" && (<>
+            <div className="form-section">
+              <div className="form-group">
+                <label htmlFor="creator-name" className="form-label">
+                  Nome do creator <p className="required-icon">*</p>
+                </label>
+                <input
+                  type="text"
+                  id="creator-name"
+                  className="form-input"
+                  placeholder="Digite seu e-mail"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="instagram" className="form-label">
+                  Instagram *
+                </label>
+                <input
+                  type="text"
+                  id="instagram"
+                  className="form-input"
+                  placeholder="@username ou username"
+                />
+              </div>
+              
+            </div>
+          
+            </>
+          )}
+          {selectedOption === "Em massa" && (
+            <div className="upload-section">
+              <div className="upload-content">
+                <h3 className="upload-title">Importe os creators</h3>
+                <Image
+                  src={folder}
+                  alt="folder"
+  
+                />
+                
+                <p className="upload-description">
+                  Faça o upload do CSV com nome e @username dos creators,{" "}
+                  <span className="download-link">baixar template</span>.
                 </p>
+                <div className="upload-trigger">
+                <Image
+                  src={plus}
+                  alt="plus"
+  
+                />
+                  <p className="upload-hint">clique ou arraste o arquivo para esta área</p>
+                </div>
               </div>
-            )}
-            {selectedOption === "Em massa" && (
-              <div id="mass-tab">
-                <h3>Conteúdo Em Massa</h3>
-                <p>Aqui você pode gerenciar consultas em massa de creators.</p>
+            </div>
+          )}
+              <button className="consult-button">
+              <span className="button-text">Consultar</span>
+              <div className="arrow-icon">
+                <Image
+                  src={arrowIcon}
+                  alt="arrow-right"
+  
+                />
               </div>
-            )}
-          </div>
+            </button>
+        
         </div>
       </Modal>
     </div>
