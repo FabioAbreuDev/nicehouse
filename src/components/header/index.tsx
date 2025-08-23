@@ -44,38 +44,19 @@ const Headers = () => {
                 NICEHOUSE<sup>®</sup>GlowFlag
             </div>
             <div id="image">
-                <div className="nav-icon">
+                <div className="nav-icon" onClick={toggleDropdown} ref={dropdownRef}>
                     <Image src={engineIcon} alt="engine" width={20} height={20} />
-                </div>
-                <div className="nav-icon">
-                    <Image src={bellIcon} alt="notifications" width={20} height={20} />
-                </div>
-                <div className="user-avatar-container" ref={dropdownRef}>
-                    <div className="user-avatar" onClick={toggleDropdown}>
-                        <Image
-                            src={avatar}
-                            alt="user"
-                            style={{ objectFit: "cover" }}
-                        />
-                        <Image
-                            src={arrowDown}
-                            alt="arrow down"
-                            className={`arrow-down ${isDropdownOpen ? 'arrow-up' : ''}`}
-                            width={16}
-                            height={16}
-                        />
-                    </div>
                     {isDropdownOpen && (
                         <div className="dropdown-menu">
                             <div className="dropdown-item" onClick={() => window.location.assign('/users')}>
                                 <Image src={user} alt="users" width={16} height={16} />
                                 <span>Usuários</span>
                             </div>
-                            <div className="dropdown-item">
+                            <div className="dropdown-item" onClick={() => window.location.assign('/policyprivicy')}>
                                 <Image src={policy} alt="privacy" width={16} height={16} />
                                 <span>Políticas de privacidade</span>
                             </div>
-                            <div className="dropdown-item">
+                            <div className="dropdown-item" onClick={() => window.location.assign('/termsofuse')}>
                                 <Image src={reciept} alt="terms" width={16} height={16} />
                                 <span>Termos de uso</span>
                             </div>
@@ -85,6 +66,26 @@ const Headers = () => {
                             </div>
                         </div>
                     )}
+                </div>
+                <div className="nav-icon">
+                    <Image src={bellIcon} alt="notifications" width={20} height={20} />
+                </div>
+                <div className="user-avatar-container">
+                    <div className="user-avatar">
+                        <Image
+                            src={avatar}
+                            alt="user"
+                            style={{ objectFit: "cover" }}
+                        />
+                        <Image
+                            src={arrowDown}
+                            alt="arrow down"
+                            className={`arrow-down`}
+                            /* className={`arrow-down ${isDropdownOpen ? 'arrow-up' : ''}`}*/
+                            width={16}
+                            height={16}
+                        />
+                    </div>
                 </div>
             </div>
         </header></>)
