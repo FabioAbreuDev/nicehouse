@@ -2,8 +2,7 @@
 import React, { useState } from "react";
 import "./page.css";
 import "../globals.css";
-import bellIcon from "../../assets/bell.png";
-import engineIcon from "../../assets/engine.png";
+
 import arrowIcon from "../../assets/arrow.png";
 import house from "../../assets/house.svg";
 import mug from "../../assets/mug.svg";
@@ -18,6 +17,7 @@ import deny from "../../assets/deny.svg";
 
 import Image from "next/image";
 import Modal from "../../components/Modal";
+import Headers from "@/components/header"
 
 export default function Dashboard() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -35,28 +35,7 @@ export default function Dashboard() {
   return (
     <div className="painel-container ">
       {/* Header */}
-      <header className="painel-navbar">
-        <div id="logo">
-          NICEHOUSE<sup>®</sup>GlowFlag
-        </div>
-        <div id="image">
-          <div className="nav-icon">
-            <Image src={engineIcon} alt="engine" width={20} height={20} />
-          </div>
-          <div className="nav-icon">
-            <Image src={bellIcon} alt="notifications" width={20} height={20} />
-          </div>
-          <div className="user-avatar">
-            <Image
-              src={engineIcon}
-              alt="user"
-              width={32}
-              height={32}
-              style={{ objectFit: "cover" }}
-            />
-          </div>
-        </div>
-      </header>
+      <Headers></Headers>
 
       {/* Main */}
       <main className="px-25 py-10">
@@ -159,7 +138,7 @@ export default function Dashboard() {
                 </thead>
                 <tbody className="table-body">
                   {Array.from({ length: 10 }, (_, index) => (
-                    <tr key={index} className="table-row">
+                    <tr key={index} className="table-row" onClick={() => window.location.assign(`/painel/${index}`)}>
                       <td className="table-cell creator-cell">
                         <div className="creator-info">
                           <div className="creator-avatar">

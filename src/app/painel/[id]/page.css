@@ -1,0 +1,656 @@
+.creator-container {
+    min-height: 100vh;
+    background: radial-gradient(circle at top, #8fdeff4d 20%, transparent 40%),
+        radial-gradient(circle at top left, #8fdeff4d 20%, transparent 40%),
+        radial-gradient(circle at top right, #ba60ff4d 0%, transparent 45%),
+        radial-gradient(circle at right, #ba60ff4d 0%, transparent 45%),
+        radial-gradient(circle at bottom right, #ba60ff4d 0%, transparent 45%),
+        radial-gradient(circle at bottom, #a8ff604d 0%, transparent 40%),
+        radial-gradient(circle at left, #ffffff 0%, transparent 80%);
+    padding: 24px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Consultation Header */
+.consultation-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 32px;
+    padding: 0 8px;
+}
+
+.left-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.back-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #333;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.back-button svg {
+    color: #666;
+}
+
+.breadcrumb {
+    color: #666;
+    font-size: 14px;
+}
+
+.right-section {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 30vh;
+}
+
+.search-icon {
+    color: #666;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+
+.search-icon:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.new-consultation-btn {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s;
+}
+
+.new-consultation-btn:hover {
+    background: #444;
+}
+
+/* Social Media Metrics */
+.social-metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.metric-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.metric-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.platform-logo {
+    background-color: #D1B3FF;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.platform-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+}
+
+.platform-stats {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.followers {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+.change {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 12px;
+}
+
+.change.positive {
+    color: #10B981;
+    background: rgba(16, 185, 129, 0.1);
+}
+
+.change.negative {
+    color: #EF4444;
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.change.neutral {
+    color: #6B7280;
+    background: rgba(107, 114, 128, 0.1);
+}
+
+/* Profile Card */
+.profile-card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 32px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.risk-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #EF4444;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.profile-content {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 20px;
+}
+
+.profile-image {
+    flex-shrink: 0;
+}
+
+.avatar-placeholder {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #F3F4F6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.profile-info {
+    flex: 1;
+}
+
+.profile-name {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 4px 0;
+}
+
+.profile-handle {
+    color: #666;
+    font-size: 14px;
+    margin: 0 0 16px 0;
+}
+
+.profile-description {
+    color: #333;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0 0 16px 0;
+}
+
+.last-consultation {
+    color: #666;
+    font-size: 12px;
+}
+
+.change-risk {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #3B82F6;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    justify-content: flex-end;
+    transition: color 0.2s;
+}
+
+.change-risk:hover {
+    color: #2563EB;
+}
+
+/* Trajectory Section */
+.trajectory-section {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.trajectory-section h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 16px 0;
+}
+
+.trajectory-section p {
+    color: #333;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.separator-line {
+    width: 100%;
+    height: 1px;
+    background-color: #E5E7EB;
+    margin: 16px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .social-metrics {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .creator-container {
+        padding: 16px;
+    }
+
+    .consultation-header {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+    }
+
+    .right-section {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .social-metrics {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-image {
+        align-self: center;
+    }
+}
+
+
+.consult-button {
+    width: 100%;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 24px 24px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.consult-button:hover {
+    background-color: #111827;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.button-text {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: 500;
+}
+
+.arrow-icon {
+    border-radius: 50%;
+    align-items: center;
+    position: absolute;
+    right: 6px;
+}
+
+.profile-attributes {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Risk Analysis Section */
+.risk-analysis-section {
+    margin-bottom: 32px;
+}
+
+.section-header {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+    padding: 0 8px;
+}
+
+.section-header h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+.dropdown-icon {
+    color: #666;
+    cursor: pointer;
+}
+
+.risk-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.small-cards-container {
+    display: flex;
+    gap: 16px;
+}
+
+.risk-card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.risk-card.large {
+    margin-bottom: 16px;
+}
+
+.risk-card.small {
+    width: 50%;
+}
+
+.risk-card h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 16px 0;
+}
+
+.risk-card p {
+    color: #333;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.risk-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.risk-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.risk-icon.neutral {
+    background-color: #06B6D4;
+}
+
+.risk-icon.warning {
+    background-color: #EC4899;
+}
+
+.risk-icon span {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.risk-text {
+    flex: 1;
+}
+
+.risk-status {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.risk-description {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.4;
+}
+
+/* Checklist Section */
+.checklist-section {
+    margin-bottom: 32px;
+}
+
+.checklist-card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.checklist-subsection h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 20px 0;
+}
+
+.checklist-item {
+    margin-bottom: 24px;
+}
+
+.subsection-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+.summary-line {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    color: #333;
+}
+
+.check-icon {
+    background-color: #D5FFBC;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checklist-items {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.checklist-item-text {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.4;
+    padding-left: 32px;
+}
+
+/* Marcas Section */
+.marcas-section {
+    margin-bottom: 32px;
+}
+
+.marcas-card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.marcas-subsection {
+    margin-bottom: 24px;
+    color: #333;
+    margin: 0 0 20px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.marcas-subsection:last-child {
+    margin-bottom: 0;
+}
+
+.marcas-items {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.marcas-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.marcas-item span {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.4;
+    flex: 1;
+}
+
+/* Histórico Section */
+.historico-section {
+    margin-bottom: 32px;
+}
+
+.historico-card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.historico-card h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 20px 0;
+}
+
+.brands-columns {
+    display: flex;
+    gap: 48px;
+}
+
+.brands-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.brand-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.bullet-point {
+    width: 6px;
+    height: 6px;
+    background-color: #333;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.brand-item span {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.4;
+}
+
+/* Reputação Section */
+.reputacao-section {
+    margin-bottom: 32px;
+}
+
+.reputacao-card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.reputacao-card h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 16px 0;
+}
+
+.reputacao-card p {
+    color: #333;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+}
