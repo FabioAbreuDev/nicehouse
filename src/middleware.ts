@@ -1,30 +1,49 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
+import { auth0 } from "./lib/auth0";
 
-import { auth0 } from "@/lib/auth0"; // Adjust path if your auth0 client is elsewhere
+export async function middleware(request: any) {
+  const authRes = await auth0.middleware(request);
 
-export async function middleware(request: NextRequest) {
-    const response = await auth0.middleware(request);
+  // authentication routes — let the middleware handle it
+  if (request.nextUrl.pathname.startsWith("/auth/callback")) {
+    return NextResponse.redirect(new URL("/painel", request.url));
+  }
 
-    //  If the user is authenticated, redirect them to /painel
-    if (request.nextUrl.pathname.startsWith("/auth/callback")) {
-        const user = await auth0.getSession(request);
-        console.log(user)
-        if (user) {
-            return NextResponse.redirect(new URL("/painel", request.url));
-        }
+  // authentication routes — let the middleware handle it
+  if (request.nextUrl.pathname.startsWith("/auth")) {
+    return authRes;
+  }
+
+  // public routes — no need to check for session
+  if (
+    request.nextUrl.pathname === "/login" ||
+    request.nextUrl.pathname === "/painel"
+  ) {
+    return authRes;
+  }
+
+  if (request.nextUrl.pathname.startsWith("/api")) {
+    const { origin } = new URL(request.url);
+    const session = await auth0.getSession();
+
+    // user does not have a session — redirect to login
+    if (!session) {
+      return NextResponse.redirect(`${origin}/auth/login`);
     }
-    return response;
+  }
+
+  return authRes;
 }
 
 export const config = {
-    matcher: [
-        "/painel",
-        /*
-         * Match all request paths except for the ones starting with:
-         * - _next/static (static files)
-         * - _next/image (image optimization files)
-         * - favicon.ico, sitemap.xml, robots.txt (metadata files)
-         */
-        "/((?!_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)"
-    ]
+  matcher: [
+    /*
+     * Match all request paths except for the ones starting with:
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico, sitemap.xml, robots.txt (metadata files)
+     * - api (API routes)
+     */
+    "/((?!_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|api).*)",
+  ],
 };
