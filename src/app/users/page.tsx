@@ -15,6 +15,7 @@ import actions from "@/assets/actions.svg";
 import Image from "next/image";
 
 import Headers from "@/components/header";
+import Toast from "@/components/Toast/Toast";
 
 interface PageProps {
   params: Promise<{
@@ -28,11 +29,38 @@ export default function DynamicPage({ params }: PageProps) {
     name: ''
   }])
 
+  //Só para testar o Toast na pagina
+  const [toastMode, setToastMode] = useState<"convite-enviado" | "convite-copiado" | "convite-reenviado" | "usuario-deletado" | null>(null);
+
   return (
     <>
       <Headers></Headers>
       <div className="creator-container ">
         <div className="w-4/5 mx-auto">
+
+          {/* BOTÃO PARA TESTAR O TOAST */}
+          <div className="flex gap-3 my-4">
+            <button onClick={() => setToastMode("convite-enviado")} className="px-3 py-2 bg-green-500 text-white rounded">
+              Testar Convite Enviado
+            </button>
+            <button onClick={() => setToastMode("convite-reenviado")} className="px-3 py-2 bg-green-500 text-white rounded">
+              Testar Usuário reenviado
+            </button>
+            <button onClick={() => setToastMode("convite-copiado")} className="px-3 py-2 bg-green-500 text-white rounded">
+              Testar Usuário copiado
+            </button>
+            <button onClick={() => setToastMode("usuario-deletado")} className="px-3 py-2 bg-red-500 text-white rounded">
+              Testar Usuário Deletado
+            </button>
+          </div>
+
+          {/* TESTE DE RENDERIZAÇÃO DO TOAST */}
+          {toastMode && (
+            <Toast
+              mode={toastMode}
+              onClose={() => setToastMode(null)} // Fecha o toast automaticamente
+            />
+          )}
           {/* Main Navigation/Title Area */}
           <div className="consultation-header">
             <div className="left-section">
