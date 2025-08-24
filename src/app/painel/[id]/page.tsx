@@ -1,7 +1,7 @@
 "use client";
 import "./page.css";
 import "../../globals.css";
-import { use } from "react";
+import React, { use, useState } from "react";
 import glass from "../../../assets/glass.svg"
 import arrowIcon from "../../../assets/arrow.png"
 import Instagram from "../../../assets/Instagram.svg"
@@ -14,6 +14,8 @@ import checkCircle from "../../../assets/check-circle.svg"
 import Image from "next/image";
 
 import Headers from "@/components/header";
+import ChangeRisk from "@/components/ChangeRiskMenu/ChangeRisk";
+import RiskBadge from "@/components/Badge/RiskBadge";
 
 interface PageProps {
     params: Promise<{
@@ -21,8 +23,13 @@ interface PageProps {
     }>;
 }
 
+//simulando o valor do risco vindo da API para teste
+const apiRiskLevel: RiskLevel = "medio";
+
+
 export default function DynamicPage({ params }: PageProps) {
     const { id } = use(params);
+    const [selectedRisk, setSelectedRisk] = useState<RiskLevel>(apiRiskLevel);
 
     return (
         <>
@@ -113,7 +120,9 @@ export default function DynamicPage({ params }: PageProps) {
 
                     {/* Profile Card */}
                     <div className="profile-card">
-                        <div className="risk-badge">Alto risco</div>
+                        <div className="risk-badge">
+                            <RiskBadge level={selectedRisk} />
+                        </div>
                         <div className="profile-content">
                             <div className="profile-image">
                                 <div className="avatar-placeholder">
@@ -137,10 +146,7 @@ export default function DynamicPage({ params }: PageProps) {
                                 Última consulta: 25 de dez de 2023
                             </div>
                             <div className="change-risk">
-                                Alterar risco
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                                    <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                </svg>
+                                <ChangeRisk initialRisk={selectedRisk} onChangeRisk={setSelectedRisk} />
                             </div>
                         </div>
 
