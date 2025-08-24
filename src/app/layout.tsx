@@ -23,7 +23,7 @@ export default function RootLayout({ children }: any) {
       <body>
         <Auth0Provider>
           <main id="app">
-            <div className="flex-grow-1 mt-5">{children}</div>
+            <div>{children}</div>
           </main>
         </Auth0Provider>
       </body>

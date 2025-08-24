@@ -3,14 +3,13 @@ import { auth0 } from "./lib/auth0";
 
 export async function middleware(request: any) {
   const authRes = await auth0.middleware(request);
+  const session = await auth0.getSession();
 
   // authentication routes — let the middleware handle it
-  if (request.nextUrl.pathname.startsWith("/auth/callback")) {
-    return NextResponse.redirect(new URL("/painel", request.url));
-  }
 
   // authentication routes — let the middleware handle it
   if (request.nextUrl.pathname.startsWith("/auth")) {
+    console.log(authRes);
     return authRes;
   }
 
@@ -24,7 +23,6 @@ export async function middleware(request: any) {
 
   if (request.nextUrl.pathname.startsWith("/api")) {
     const { origin } = new URL(request.url);
-    const session = await auth0.getSession();
 
     // user does not have a session — redirect to login
     if (!session) {
